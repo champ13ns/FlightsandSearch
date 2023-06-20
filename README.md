@@ -30,4 +30,3 @@
 - A flight belongs to an airplane, but an airplane belongs to multipe flights (1 : N) 
 - A city has many airports but an airport belongs to one city only (1:N)
 - An aiport can have multiple flights, but a flight belongs to an aiport only(1:N).
-
