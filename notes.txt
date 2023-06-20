@@ -1,0 +1,9 @@
+after creating models, and generating migrations for that.
+models -> tell you how the table structure should be.
+repository -> 
+
+controllers => just hit the api call.
+service => All the buisness logic should be present.
+           All the interaction with the model should be happing with the repository layer(MVC).
+           
+            
