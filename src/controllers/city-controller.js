@@ -1,11 +1,13 @@
 const {CityService} = require('./../services/cityService.js')
 
-const CityService = new CityService();
+const cityService = new CityService();
 
 const create = async(req,res) => {
     // POST , data will be inside req.body
+
     try{
-        const city = await CityService.createCity(req.body);
+        console.log(req.body)
+        const city = await cityService.createCity(req.body);
         return res.status(200).json({
             data : city,
             success : true,
@@ -28,9 +30,9 @@ const destroy = async(req,res) => {
     // GET ->  
     // req.params.id
     try{
-        const city = await CityService.deleteCity(req.params.id);
+        const city = await cityService.deleteCity(req.params.id);
         return res.status(200).json({
-            data : {},
+            data : city,
             success : true,
             message : "Successfully deleted city",
             err : {}
@@ -50,7 +52,7 @@ const update = async(req,res) => {
     // PATCH -> /city/:id
     // data -> req.body
     try{
-        const city = await CityService.updateCity(req.body , req.params.id);
+        const city = await cityService.updateCity(req.body , req.params.id);
         return res.status(200).json({
             data : city,
             success : true,
@@ -71,11 +73,12 @@ const update = async(req,res) => {
 const get = async(req,res) => {
     // GET , /city/:id
     try{
-        const city = await CityService.getCity(req.params.id);
+        console.log(req.params.id)
+        const city = await cityService.getCity(req.params.id);
         return res.status(200).json({
             data : city,
             success : true,
-            message : "Successfully deleted city",
+            message : "Successfully get city",
             err : {}
         }) 
     }   
@@ -83,7 +86,7 @@ const get = async(req,res) => {
         return res.status(501).json({
             data : {},
             success : false,
-            message : 'Not able to delete city',
+            message : 'Not able to get  city',
             err : err
         })
     }

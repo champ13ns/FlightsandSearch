@@ -1,12 +1,14 @@
 const {City} = require('../models/index.js')
 
 class CityRepository{
+
     async createCity({name}){
+        console.log("name is ",name)
         try{
-            await City.create({
+            const newCity =  await City.create({
                 name
             });
-            return City;
+            return newCity;
         } catch(err){
             console.log("error from repo layer");
             throw(err)
@@ -32,10 +34,12 @@ class CityRepository{
                 id : cityId
             }
         })
+        return city;
     }
 
     async getCity(cityId){
         try{
+            console.log("city ID is ",cityId)
             const city = await City.findByPk(cityId)
             return city;
         }
